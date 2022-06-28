@@ -1,4 +1,5 @@
-const VIM_SNIPPET = /^snippet (?:"([\w\s-]+)"|([^\s]+))\s*(?:"(.*?)".*)?\n((?:.|\n)*?)\nendsnippet$/gm
+const VIM_SNIPPET =
+  /^snippet (?:"([\w\s-]+)"|([^\s]+))\s*(?:"(.*?)".*)?\n((?:.|\n)*?)\n$/gm
 
 function parse(rawSnippets) {
   let res

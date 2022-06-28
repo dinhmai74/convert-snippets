@@ -1,7 +1,7 @@
 {
-  "name": "convert-snippets",
+  "name": "convert-coq-snippets",
   "version": "1.0.3",
-  "description": "convert back and forth snippets between ultinips and vscode",
+  "description": "convert back and forth snippets between coqsnips and vscode",
   "main": "generate.js",
   "author": "Vincent CORDOBES",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "lint": "eslint src && yarn format:check"
   },
   "bin": {
-    "convert-snippets": "./src/cli.js"
+    "convert-coq-snippets": "./src/cli.js"
   },
   "devDependencies": {
     "eslint": "^8.10.0",

@@ -27,12 +27,11 @@ function jsonToUltisnips(json) {
 
 function toUltisnips(snippet) {
   const body = Array.isArray(snippet.body)
-    ? snippet.body.join('\n')
+    ? snippet.body.join('\n\t')
     : snippet.body
   // prettier-ignore
-  return `snippet ${formatPrefix(snippet.prefix)}${snippet.description ? ` "${snippet.description}"` : ''}
-${formatBody(body)}
-endsnippet
+  return `snippet ${formatPrefix(snippet.prefix)}
+  ${formatBody(body)}
 `
 }
 
@@ -40,16 +39,9 @@ endsnippet
  * @param {string} prefix
  */
 function formatPrefix(prefixOrPrefixes) {
-  let prefix
+  let prefix = prefixOrPrefixes
 
-  if (Array.isArray(prefixOrPrefixes)) {
-    prefix = prefixOrPrefixes[0]
-    logger.warn(`Unsupported multiple prefixes =>  using pefix "${prefix}"`)
-  } else {
-    prefix = prefixOrPrefixes
-  }
-  const isMultiWord = prefix.split(' ').length > 1
-  return isMultiWord ? `"${prefix}"` : prefix
+  return prefix.replace('"', '')
 }
 
 /**
